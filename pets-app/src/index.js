@@ -14,11 +14,10 @@ import { greetings, fruits } from './data/greetingsData';
 //   h1Element.textContent = greeting;
 //   h1Elements.push(h1Element)
 // }
-console.log(fruits)
 
-const h1Elements = greetings.map(greeting => {
-  return <h1 key={greeting}>{greeting} </h1>
-})
+// const h1Elements = greetings.map(greeting => {
+//   return <h1 key={greeting}>{greeting} </h1>
+// })
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
