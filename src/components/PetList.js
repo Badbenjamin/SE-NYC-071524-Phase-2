@@ -2,6 +2,8 @@ import Pet from "./Pet";
 
 function PetList({ pets }){
 
+    // console.log(pets)
+
     const petComponents = pets.map(pet => {
         return <Pet key={pet.id} pet={pet}/>
     })
