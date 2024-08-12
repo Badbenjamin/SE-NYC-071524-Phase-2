@@ -8,9 +8,13 @@ function Pet({pet, deletePet}){
         setDisplayAnimalType(displayAnimalType => !displayAnimalType)
     }
 
+    function imageClick(){
+        console.log(pet.id)
+    }
+
     return (
         <li className="pet">
-            <img src={pet.image} alt={pet.name}/>
+            <img onClick={imageClick} src={pet.image} alt={pet.name}/>
             <h4 onClick={toggleDisplayAnimalType} className={displayAnimalType ? "display-animal-type" : ""}>{displayAnimalType ? pet.animal_type : pet.name}</h4>
             <button onClick={() => deletePet(pet.id)} className="adopt-button">Adopt</button>
         </li>

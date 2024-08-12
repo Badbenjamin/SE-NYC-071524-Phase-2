@@ -1,46 +1,76 @@
 {
   "pets": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Fido",
       "image": "./images/dog.jpeg",
       "animal_type": "Dog"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Kitty",
       "image": "./images/cat.png",
       "animal_type": "Cat"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Hammy",
       "image": "./images/hamster.jpeg",
       "animal_type": "Hamster"
     },
     {
-      "id": 4,
+      "id": "4",
       "name": "Polly",
       "image": "./images/parrot.jpeg",
       "animal_type": "Bird"
     },
     {
-      "id": 5,
+      "id": "5",
       "name": "Angel",
       "image": "./images/horse.jpeg",
       "animal_type": "Horse"
     },
     {
-      "id": 6,
+      "id": "6",
       "name": "Fluffy",
       "image": "./images/guinea-pig.jpeg",
       "animal_type": "Guinea Pig"
     },
     {
-      "id": 7,
+      "id": "7",
       "name": "Goldie",
       "image": "./images/fish.jpeg",
       "animal_type": "Fish"
+    },
+    {
+      "id": "43fd",
+      "name": "mr oc",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcf-gRgXzduxQC5Qd0PFsbnhWcQKU_h7J01Q&s",
+      "animal_type": "octopus"
+    },
+    {
+      "id": "91d1",
+      "name": "cd",
+      "image": "data:image/jpeg;base64,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",
+      "animal_type": "food"
+    },
+    {
+      "id": "e6b61bc5-320b-4559-a90f-43c6b2e43a53",
+      "name": "cd 2",
+      "image": "https://www.yellowblissroad.com/wp-content/uploads/2023/05/Corn-Dogs-11.jpg",
+      "animal_type": "food"
+    },
+    {
+      "id": "6870b8bb-87cd-471b-adfc-2f9cfacba478",
+      "name": "cd 2",
+      "image": "https://www.yellowblissroad.com/wp-content/uploads/2023/05/Corn-Dogs-11.jpg",
+      "animal_type": "food"
+    },
+    {
+      "id": "a660",
+      "name": "cd2",
+      "image": "https://www.yellowblissroad.com/wp-content/uploads/2023/05/Corn-Dogs-11.jpg",
+      "animal_type": "food"
     }
   ]
 }
