@@ -5,9 +5,9 @@ import { useState } from "react";
 function NewPetForm({pets, addPet}) {
   
 
-  const [nameInput, setNameInput] = useState("")
-  const [imageInput, setImageInput] = useState("")
-  const [animalTypeInput, setAnimalTypeInput] = useState("")
+  // const [nameInput, setNameInput] = useState("")
+  // const [imageInput, setImageInput] = useState("")
+  // const [animalTypeInput, setAnimalTypeInput] = useState("")
 
   const [formData, setFormData] = useState({
     name: "",
