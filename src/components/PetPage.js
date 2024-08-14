@@ -23,9 +23,23 @@ function PetPage(){
     }
 
     function deletePet(id){
-        setPets((pets) => pets.filter(pet => {
-            return pet.id !== id
-        }))
+        // setPets((pets) => pets.filter(pet => {
+        //     return pet.id !== id
+        // }))
+        
+        fetch(`http://localhost:4000/pets/${id}`, {
+            method: "DELETE"
+        })
+        .then(response => {
+            if (response.ok) {
+                setPets((pets) => pets.filter(pet => {
+                    return pet.id !== id
+                }))
+            } else {
+                alert("error")
+            }
+        })
+
     }
 
     function addPet(newPet){
@@ -40,11 +54,37 @@ function PetPage(){
         .then(newPetData => setPets([...pets, newPetData]))
     }
 
+    function updatePet(updatedPetData, id){
+      
+
+        fetch(`http://localhost:4000/pets/${id}`, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(updatedPetData)
+        })
+        .then(response => response.json())
+        .then(updatedPet => {
+            const updatedPetArray = pets.map((pet) => {
+                if (pet.id === id) {
+                    return updatedPet
+                } else {
+                    return pet
+                }
+            })
+            setPets(updatedPetArray)
+        })
+        
+    }
+
+    
+
     return (
         <main>
             <NewPetForm addPet={addPet}/>
             <Search updateSearchText={updateSearchText} searchText={searchText}/>
-            <PetList pets={filteredPets} deletePet={deletePet}/>
+            <PetList pets={filteredPets} deletePet={deletePet} updatePet={updatePet}/>
         </main>
     );
 }
