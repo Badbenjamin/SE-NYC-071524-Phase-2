@@ -1,6 +1,17 @@
 import { useState, useEffect } from "react";
+import { useOutletContext } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-function PetProfile({deletePet, updatePet}){
+// dont forget to delete props after useOutletContext is invoked
+function PetProfile(){
+
+    // get functions from context of App 
+    const { deletePet, updatePet} = useOutletContext()
+    // console.log(deletePet, updatePet)
+
+    // params returns id from URL
+    const {id} = useParams()
+    console.log(id)
 
     const [pet, setPet] = useState(null)
     const [displayAnimalType, setDisplayAnimalType] = useState(false)
@@ -13,6 +24,10 @@ function PetProfile({deletePet, updatePet}){
 
     useEffect(() => {
         // Make a GET request to find a specific pet whose info should be displayed in this component
+        fetch(`http://localhost:4000/pets/${id}`)
+        .then(r => r.json())
+        .then(petData => setPet(petData))
+        .catch(error => alert(error))
     }, [])
 
     function toggleDisplayAnimalType(){

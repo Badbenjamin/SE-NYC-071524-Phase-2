@@ -2,6 +2,11 @@ import Header from "./Header";
 import PetList from "./PetList";
 import { useState, useEffect } from "react";
 import NewPetForm from "./NewPetForm";
+import ErrorPage from "./ErrorElement";
+import NavBar from "./NavBar";
+// outlet lets us pass props and info to components using CONTEXT prop
+import { Outlet } from "react-router-dom";
+
 
 function App(){
 
@@ -14,6 +19,8 @@ function App(){
     // }
     // else if(route === "/add_pet"){
     //   component = <NewPetForm addPet={addPet}/>
+    // } else {
+    //     component = <ErrorPage/>
     // }
 
     useEffect(() => {
@@ -72,19 +79,29 @@ function App(){
 
     // function navigate(event){
     //   event.preventDefault()
+    //   console.log(event.target.href)
+    // //   console.log(pathname)
+    // //   window history pushState is how we navegate to another window by changing the URL path
     //   window.history.pushState(null, "", event.target.href);
+    // //   This updates the route state to the current URL path
+    // // the logic at line 11 will decide what component to display 
+    // // depending on the route
     //   setRoute(window.location.pathname)
     // }
 
     return (
       <div className="app">
+        <NavBar/>
         {/* <nav className="navbar">
-          <a className={route === "/" ? "active" : ""} onClick={(event) => navigate(event, "/")} href="/">Home</a>
-          <a className={route === "/add_pet" ? "active" : ""} onClick={(event) => navigate(event, "/add_pet")} href="/add_pet">Add Pet</a>
+          <a className={route === "/" ? "active" : ""} onClick={navigate} href="/">Home</a>
+          <a className={route === "/add_pet" ? "active" : ""} onClick={navigate} href="/add_pet">Add Pet</a>
         </nav> */}
         <Header/>
-        <NewPetForm addPet={addPet}/>
-        <PetList pets={pets} deletePet={deletePet} updatePet={updatePet}/>
+        {/* OUTLET lets children render? */}
+        {/* desructure pets to take value of pets from pets */}
+            <Outlet context={{pets: pets, deletePet: deletePet, updatePet: updatePet, addPet: addPet}}/>
+        {/* <NewPetForm addPet={addPet}/>
+        <PetList pets={pets} deletePet={deletePet} updatePet={updatePet}/> */}
         {/* {component} */}
       </div>
     );

@@ -1,6 +1,17 @@
 import { useState } from "react";
+import { useOutletContext, useNavigate } from "react-router-dom";
 
-function NewPetForm({addPet}) {
+function NewPetForm() {
+
+  const {addPet} = useOutletContext()
+
+  // way to navegate to other page programatically 
+  const navegate = useNavigate()
+  console.log(useNavigate)
+
+  // This will take us home on re render
+  // navegate(`/`)
+
 
   const [formData, setFormData] = useState({
     name: "",
@@ -26,6 +37,9 @@ function NewPetForm({addPet}) {
       image: "",
       animal_type: ""
     })
+    // invoke useNavigate after form submission
+    // takes us back home
+    navegate('/')
   }
 
   return (
