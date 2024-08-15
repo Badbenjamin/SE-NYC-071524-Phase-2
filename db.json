@@ -48,13 +48,6 @@
       "image": "./images/fish.jpeg",
       "animal_type": "Fish",
       "likes": 4
-    },
-    {
-      "id": "5bc3",
-      "name": "doggy",
-      "image": "https://thebigmansworld.com/wp-content/uploads/2023/07/spicy-ramen-recipe.jpg",
-      "animal_type": "6",
-      "likes": 8
     }
   ]
 }

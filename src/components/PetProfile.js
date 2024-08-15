@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { useOutletContext } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
+
 
 // dont forget to delete props after useOutletContext is invoked
 function PetProfile(){
+
+    const navigate = useNavigate()
 
     // get functions from context of App 
     const { deletePet, updatePet} = useOutletContext()
@@ -37,6 +40,7 @@ function PetProfile(){
     function handleAdoptButtonClick(){
         deletePet(pet.id)
         setPet(null)
+        navigate('/')
     }
 
     function toggleDisplayForm(){
